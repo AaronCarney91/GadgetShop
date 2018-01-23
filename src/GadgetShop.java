@@ -17,8 +17,35 @@ public class GadgetShop {
     private int widgets = 0;
     private int gadgets = 0;
 
-    public GadgetShop()
+    public GadgetShop(int w, int g)
     {
+        widgets = w;
+        gadgets = g;
 
     }
+
+    public double calcVat()
+    {
+        double vat = 0;
+        vat = widgets * VAT_RATE;
+
+        return vat;
+    }
+
+    public double widgetTotal()
+    {
+        double widTotal = 0;
+        widTotal = (widgets * WIDGET_PRICE) + calcVat();
+
+        return widTotal;
+    }
+
+
+    public static void main(String[] args)
+    {
+        GadgetShop gs = new GadgetShop(2, 3);
+        System.out.println("Widgets: " + gs.widgets + ", Price: " + gs.widgetTotal() + "n/");
+    }
+
+
 }
